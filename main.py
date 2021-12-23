@@ -17,6 +17,8 @@ BTC = yf.download(Bitcoin, start="2021-12-22", end="2021-12-22")
 st.write(""" Bitcoin """)
 imageBTC = Image.open(urlopen("https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"))
 st.image(imageBTC)
+bla = BTCHis["High"].max()
+st.write(bla)
 st.table(BTC)
 st.bar_chart(BTCHis.Close)
 
