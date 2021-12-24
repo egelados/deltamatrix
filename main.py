@@ -14,7 +14,8 @@ def get_ticker(name):
 
 tickers = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", 
            "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD",
-           "SHIB-USD", "MATIC-USD"]
+           "SHIB-USD", "MATIC-USD", "CRO-USD", "UNI1-USD", "LTC-USD", 
+           "LINK-USD", "ALGO-USD", "BCH-USD", "TRX-USD", "XLM-USD"]
 
 data = []
 for tick in tickers:
