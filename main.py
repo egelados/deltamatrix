@@ -43,4 +43,3 @@ df3 = df2.sort_values(by=['Delta'])
 styler = df3.style.hide_index().format(subset=['Delta'], decimal=',', precision=4).bar(subset=['Delta'], align="mid")
 
 st.table(styler)
-#st.table(df2)
