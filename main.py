@@ -41,17 +41,17 @@ df = pd.DataFrame(
 
 st.table(df)
 
-# data = {'Name':['BTC', 'ETH', 'BNB', 'SOL', 'ADA', 'XRP', 'LUNA1', 'AVAX', 'DOT', 'DOGE'],
-#         'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"], data[3].info["regularMarketPrice"], data[4].info["regularMarketPrice"], data[5].info["regularMarketPrice"], data[6].info["regularMarketPrice"], data[7].info["regularMarketPrice"], data[8].info["regularMarketPrice"], data[9].info["regularMarketPrice"] ]}
-  
-# # Creates pandas DataFrame.
-# df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
-
-data = {'Name':['BTC', 'ETH', 'BNB'],
-        'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"]]}
+data = {'Name':['BTC', 'ETH', 'BNB', 'SOL', 'ADA', 'XRP', 'LUNA1', 'AVAX', 'DOT', 'DOGE'],
+        'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"], data[3].info["regularMarketPrice"], data[4].info["regularMarketPrice"], data[5].info["regularMarketPrice"], data[6].info["regularMarketPrice"], data[7].info["regularMarketPrice"], data[8].info["regularMarketPrice"], data[9].info["regularMarketPrice"] ]}
   
 # Creates pandas DataFrame.
-df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3'])
+df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
+
+# data = {'Name':['BTC', 'ETH', 'BNB'],
+#         'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"]]}
+  
+# # Creates pandas DataFrame.
+# df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3'])
 
 st.table(df2)
 
