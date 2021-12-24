@@ -9,12 +9,12 @@ st.write(""" # ATH Delta Matrix """)
 st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
 
 def get_ticker(name):
-    company = yf.Ticker(name)
-    return company
+    coin = yf.Ticker(name)
+    return coin
 
 tickers = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", 
            "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD",
-           "SHIB-USD"]
+           "SHIB-USD", "MATIC-USD"]
 
 data = []
 for tick in tickers:
