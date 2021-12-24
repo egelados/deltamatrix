@@ -40,7 +40,7 @@ data2['Delta'] = [-((l / m) - 1)*100 for l, m in zip(data2['Price'], data2['ATH'
 
 df2 = pd.DataFrame(data2)
 df3 = df2.sort_values(by=['Delta'])
-styler = df3.style.hide_index().format(subset=['Delta'], decimal=',', precision=4).bar(subset=['mean'], align="mid")
+styler = df3.style.hide_index().format(subset=['Delta'], decimal=',', precision=4).bar(subset=['Delta'], align="mid")
 
 st.table(styler.to_html(), unsafe_allow_html=True)
 #st.table(df2)
