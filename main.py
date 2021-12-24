@@ -35,17 +35,21 @@ for history in histories:
 
 st.table(aths)
 
-df = pd.DataFrame(
-    np.random.randn(10, 5),
-    columns=('col %d' % i for i in range(5)))
+# df = pd.DataFrame(
+#     np.random.randn(10, 5),
+#     columns=('col %d' % i for i in range(5)))
+# st.table(df)
 
-st.table(df)
+# data = {'Name':['BTC', 'ETH', 'BNB', 'SOL', 'ADA', 'XRP', 'LUNA1', 'AVAX', 'DOT', 'DOGE'],
+#         'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"], data[3].info["regularMarketPrice"], data[4].info["regularMarketPrice"], data[5].info["regularMarketPrice"], data[6].info["regularMarketPrice"], data[7].info["regularMarketPrice"], data[8].info["regularMarketPrice"], data[9].info["regularMarketPrice"] ]}
 
-data = {'Name':['BTC', 'ETH', 'BNB', 'SOL', 'ADA', 'XRP', 'LUNA1', 'AVAX', 'DOT', 'DOGE'],
-        'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"], data[3].info["regularMarketPrice"], data[4].info["regularMarketPrice"], data[5].info["regularMarketPrice"], data[6].info["regularMarketPrice"], data[7].info["regularMarketPrice"], data[8].info["regularMarketPrice"], data[9].info["regularMarketPrice"] ]}
-  
+data2 = {'Coin':[i for i in tickers],
+         'ATH': [l for l in aths],
+        'Price':[j.info["regularMarketPrice"] for j in data]}
+
+
 # Creates pandas DataFrame.
-df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
+df2 = pd.DataFrame(data2, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
 
 # data = {'Name':['BTC', 'ETH', 'BNB'],
 #         'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"]]}
