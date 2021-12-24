@@ -1,7 +1,6 @@
 import streamlit as st
 import yfinance as yf
 import pandas as pd
-
 from urllib.request import urlopen
 from PIL import Image
 
@@ -16,6 +15,11 @@ tickers = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD",
            "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD",
            "SHIB-USD", "MATIC-USD", "CRO-USD", "UNI1-USD", "LTC-USD", 
            "LINK-USD", "ALGO-USD", "BCH-USD", "TRX-USD", "XLM-USD"]
+
+logos = [1, 1027, 1839, 5426, 2010, 
+         52, 4172, 5805, 6636, 74, 
+         5994, 3890, 3635, 7083, 2,
+         1975, 4030, 1831, 1958, 512]
 
 data = []
 for tick in tickers:
