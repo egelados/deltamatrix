@@ -33,7 +33,7 @@ for history in histories:
 
 data2 = {'Coin':[i for i in tickers],
          'ATH': [l for l in aths],
-        'Price':[j.info["regularMarketPrice"] for j in data]}
+        'Price':[j.history(period="1m")["Close"].values[0] for j in data]}
 
 
 df2 = pd.DataFrame(data2, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
