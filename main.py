@@ -1,5 +1,8 @@
 import streamlit as st
 import yfinance as yf
+import numpy as np
+import pandas as pd
+
 from urllib.request import urlopen
 from PIL import Image
 
@@ -8,32 +11,48 @@ st.write(""" # Delta Matrix """)
 #st.header(""" first test """)
 st.sidebar.header(""" Delta Matrix """)
 
-Bitcoin = "BTC-USD"
-BTC_DATA = yf.Ticker(Bitcoin)
-BTCHis = BTC_DATA.history(period="max")
-
-BTC = yf.download(Bitcoin, start="2021-12-22", end="2021-12-22")
-
-st.write(""" Bitcoin """)
-imageBTC = Image.open(urlopen("https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"))
-st.image(imageBTC)
-bla = BTCHis["High"].max()
-st.write(bla)
-st.table(BTC)
-st.bar_chart(BTCHis.Close)
-
 def get_ticker(name):
     company = yf.Ticker(name)
     return company
 
-c1 = get_ticker("AAPL")
-apple = yf.download("AAPL", start="2021-01-01", end="2021-12-31")
+tickers = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", 
+           "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD"]
 
-data1 = c1.history(period="3mo")
+data = []
 
-st.write(""" ### Apple """)
-st.write(c1.info['longBusinessSummary'])
-st.write(apple)
-st.line_chart(data1.values)
+for tick in tickers:
+    data.append(get_ticker(tick))
 
+histories = []
 
+for datum in data:
+    histories.append(datum.history(period="max"))
+
+aths = []
+
+for history in histories:
+    aths.append(history["High"].max())
+
+st.table(aths)
+
+df = pd.DataFrame(
+    np.random.randn(10, 5),
+    columns=('col %d' % i for i in range(5)))
+
+st.table(df)
+
+# data = {'Name':['BTC', 'ETH', 'BNB', 'SOL', 'ADA', 'XRP', 'LUNA1', 'AVAX', 'DOT', 'DOGE'],
+#         'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"], data[3].info["regularMarketPrice"], data[4].info["regularMarketPrice"], data[5].info["regularMarketPrice"], data[6].info["regularMarketPrice"], data[7].info["regularMarketPrice"], data[8].info["regularMarketPrice"], data[9].info["regularMarketPrice"] ]}
+  
+# # Creates pandas DataFrame.
+# df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3', 'rank4', 'rank5', 'rank6', 'rank7', 'rank8', 'rank9', 'rank10'])
+
+data = {'Name':['BTC', 'ETH', 'BNB'],
+        'marks':[data[0].info["regularMarketPrice"], data[1].info["regularMarketPrice"], data[2].info["regularMarketPrice"]]}
+  
+# Creates pandas DataFrame.
+df2 = pd.DataFrame(data, index =['rank1', 'rank2', 'rank3'])
+
+st.table(df2)
+
+#pprint(yf.Ticker("BTC-USD").info["regularMarketPrice"])
