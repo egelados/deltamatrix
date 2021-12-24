@@ -13,21 +13,7 @@ def get_ticker(name):
     return company
 
 tickers = ["BTC-USD", "ETH-USD", "BNB-USD", "SOL-USD", "ADA-USD", 
-           "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD",
-           "SHIB-USD", "MATIC-USD", "CRO-USD", "UNI-USD", "LTC-USD", 
-           "LINK-USD", "ALGO-USD", "CH-USD", "TRX-USD", "XLM-USD", 
-           "AXS-USD", "ATOM-USD", "MANA-USD", "HBAR-USD", "FTT-USD", 
-           "VET-USD", "FIL-USD", "EGLD-USD", "ICP-USD", "SAND-USD", 
-           "ETC-USD", "THETA-USD", "FTM-USD", "HNT-USD", "XTZ-USD", 
-           "CAKE-USD", "XMR-USD", "MIOTA-USD", "GRT1-USD", "EOS-USD", 
-           "AAVE-USD", "STX-USD", "LRC-USD", "FLOW-USD", "ONE1-USD", 
-           "BTT-USDR", "MKR-USD", "BSV-USD", "KSM-USD", "ENJ-USD", 
-           "QNT-USD", "CRV-USD", "ZEC-USD", "AMP-USD", "NEO-USD", 
-           "RUNE-USD", "BAT-USD", "AR-USD", "KDA-USD", "CELO-USD", 
-           "WAVES-USD", "CHZ-USD", "CCXX-USD", "DASH-USD", "HOT1-USD", 
-           "COMP1-USD", "CTC-USD", "XEM-USD", "YFI-USD", "1INCH-USD", 
-           "IOTX-USD", "OMI-USD", "TFUEL-USD", "ROSE-USD", "DCR-USD", 
-           "DFI-USD", "XDC-USD", "ICX-USD", "RVN-USD", "QTUM-USD"]
+           "XRP-USD", "LUNA1-USD", "AVAX-USD", "DOT-USD", "DOGE-USD"]
 
 data = []
 for tick in tickers:
