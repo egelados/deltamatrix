@@ -2,15 +2,13 @@ import streamlit as st
 import yfinance as yf
 import pandas as pd
 
-st.write(""" # ATH Delta Matrix """)
-st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
-unit_of_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
-if unit_of_denomination:
-     st.write('Great!')
-
 def get_ticker(name, unit):
     coin = yf.Ticker(name + "-" + unit)
     return coin
+
+st.write(""" # ATH Delta Matrix """)
+st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
+unit_of_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
 
 symbols = ["BTC", "ETH", "BNB", "SOL", "ADA", 
            "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
@@ -23,8 +21,13 @@ logos = [1, 1027, 1839, 5426, 2010,
          1975, 4030, 3794, 3077, 6892]
 
 tickers = []
-for symbol in symbols:
-    tickers.append(get_ticker(symbol,"USD"))
+
+if unit_of_denomination:
+    for symbol in symbols:
+        tickers.append(get_ticker(symbol,"USD"))
+else:
+    for symbol in symbols:
+        tickers.append(get_ticker(symbol,"BTC"))
 
 histories = []
 for ticker in tickers:
