@@ -24,8 +24,8 @@ for symbol in symbols:
     tickers.append(get_ticker(symbol))
 
 histories = []
-for datum in tickers:
-    histories.append(datum.history(period="max"))
+for ticker in tickers:
+    histories.append(ticker.history(period="max"))
 
 aths = []
 for history in histories:
@@ -36,11 +36,11 @@ data = {'Coin': ["<img src=https://s2.coinmarketcap.com/static/img/coins/64x64/"
          'ATH': [l for l in aths],
         'Price': [j.history(period="1m")["Close"].values[0] for j in tickers]}
 
-#data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
+data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
 data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
 data['Delta'] = [-((l / m) - 1)*100 for l, m in zip(data['Price'], data['ATH'])]    
 
-dataframe = pd.dataFrame(data)
+dataframe = pd.DataFrame(data)
 sorted_dataframe = dataframe.sort_values(by=['Delta'])
 
 styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['Delta'], decimal=',', precision=2).bar(subset=['Delta'], align="mid")
