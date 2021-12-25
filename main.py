@@ -24,10 +24,10 @@ tickers = []
 
 if unit_of_denomination:
     for symbol in symbols:
-        tickers.append(get_ticker(symbol,"USD"))
+        tickers.append(get_ticker(symbol,"BTC"))
 else:
     for symbol in symbols:
-        tickers.append(get_ticker(symbol,"BTC"))
+        tickers.append(get_ticker(symbol,"USD"))
 
 histories = []
 for ticker in tickers:
