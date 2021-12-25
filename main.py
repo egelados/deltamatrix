@@ -35,6 +35,8 @@ data = {'Coin': ["<img src=https://s2.coinmarketcap.com/static/img/coins/64x64/"
          'Ticker': [i for i in symbols],
          'ATH': [l for l in aths],
         'Price': [j.history(period="1m")["Close"].values[0] for j in tickers]}
+
+#data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
 data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
 data['Delta'] = [-((l / m) - 1)*100 for l, m in zip(data['Price'], data['ATH'])]    
 
