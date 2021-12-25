@@ -4,6 +4,10 @@ import pandas as pd
 
 st.write(""" # ATH Delta Matrix """)
 st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
+agree = st.sidebar.checkbox('I agree')
+
+if agree:
+     st.write('Great!')
 
 def get_ticker(name):
     coin = yf.Ticker(name)
