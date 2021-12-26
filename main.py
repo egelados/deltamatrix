@@ -6,10 +6,9 @@ def get_ticker(name, unit):
     coin = yf.Ticker(name + "-" + unit)
     return coin
 
-def render_the_matrix(sats_denomination):
-    st.write(sats_denomination)
+def render_the_matrix(denomination):
     tickers = []
-    if sats_denomination == "incents":
+    if denomination == "incents":
         symbols = ["BTC", "ETH", "BNB", "SOL", "ADA", 
                   "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
                   "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
@@ -20,7 +19,7 @@ def render_the_matrix(sats_denomination):
                  1975, 4030, 3794, 3077, 6892]
         for symbol in symbols:
             tickers.append(get_ticker(symbol,"USD"))
-    elif sats_denomination == "insats":
+    elif denomination == "insats":
         symbols = ["ETH", "BNB", "SOL", "ADA", 
                   "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
                   "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
