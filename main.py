@@ -9,7 +9,7 @@ def get_ticker(name, unit):
 def render_the_matrix(sats_denomination):
     st.write(sats_denomination)
     tickers = []
-    if sats_denomination == "OFF":
+    if sats_denomination == "incents":
         symbols = ["BTC", "ETH", "BNB", "SOL", "ADA", 
                   "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
                   "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
@@ -20,7 +20,7 @@ def render_the_matrix(sats_denomination):
                  1975, 4030, 3794, 3077, 6892]
         for symbol in symbols:
             tickers.append(get_ticker(symbol,"USD"))
-    else:
+    elif sats_denomination == "insats":
         symbols = ["ETH", "BNB", "SOL", "ADA", 
                   "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
                   "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
@@ -30,7 +30,7 @@ def render_the_matrix(sats_denomination):
                  5994, 3890, 3635, 7083, 2,
                  1975, 4030, 3794, 3077, 6892]
         for symbol in symbols:
-            tickers.append(get_ticker(symbol,"USD"))
+            tickers.append(get_ticker(symbol,"BTC"))
 
     histories = []
     for ticker in tickers:
@@ -62,6 +62,6 @@ st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG mo
 sats_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
 
 if sats_denomination:
-    render_the_matrix("ON")
+    render_the_matrix("insats")
 else: 
-    render_the_matrix("OFF")
+    render_the_matrix("incents")
