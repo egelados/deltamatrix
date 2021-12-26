@@ -39,15 +39,15 @@ imgsrc_prefix = "<img src=https://s2.coinmarketcap.com/static/img/coins/64x64/"
 imgsrc_suffix = ".png width=24 height=24>"
 
 if unit_of_denomination:
-        data = {'Coin': [imgsrc_prefix+ str(logo) + imgsrc_suffix for logo in logos[1:]] ,
-            'Ticker': [symbol for symbol in symbols[1:]],
-            'ATH': [ath for ath in aths[1:]],
-            'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers[1:]]}
+    data = {'Coin': [imgsrc_prefix+ str(logo) + imgsrc_suffix for logo in logos],
+        'Ticker': [symbol for symbol in symbols],
+        'ATH': [ath for ath in aths],
+        'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers]}
 else:
-        data = {'Coin': [imgsrc_prefix+ str(logo) + imgsrc_suffix for logo in logos] ,
-            'Ticker': [symbol for symbol in symbols],
-            'ATH': [ath for ath in aths],
-            'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers]}
+    data = {'Coin': [imgsrc_prefix+ str(logo) + imgsrc_suffix for logo in logos],
+        'Ticker': [symbol for symbol in symbols],
+        'ATH': [ath for ath in aths],
+        'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers]}
 
 data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
 data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
