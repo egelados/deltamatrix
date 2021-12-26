@@ -55,7 +55,7 @@ def render_the_matrix(denomination):
     if denomination == "incents":
         styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=2).bar(subset=['Delta'], align="mid")
     elif denomination == "insats":
-        styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price'], decimal='.', precision=6).bar(subset=['Delta'], align="mid", decimal='.', precision=2)
+        styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price'], decimal='.', precision=6).format(subset=['Delta'], decimal='.', precision=2).bar(subset=['Delta'], align="mid")
 
     st.write(styled_sorted_dataframe.to_html(), unsafe_allow_html=True)
 
