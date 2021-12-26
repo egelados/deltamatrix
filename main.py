@@ -12,9 +12,6 @@ def render_the_matrix(denomination_unit):
             "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
             "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
             "LINK", "ALGO", "ATOM", "VET", "EGLD"]
-    
-    if denomination_unit == "BTC":
-        symbols[0] = "USD"
 
     logos = [1, 1027, 1839, 5426, 2010, 
             4172, 5805, 6636, 74, 1966,
@@ -23,7 +20,7 @@ def render_the_matrix(denomination_unit):
 
     tickers = []
     for symbol in symbols:
-        tickers.append(get_ticker(symbol,denomination_unit))
+        tickers.append(get_ticker(symbol,"USD"))
 
     histories = []
     for ticker in tickers:
