@@ -21,13 +21,8 @@ logos = [1, 1027, 1839, 5426, 2010,
          1975, 4030, 3794, 3077, 6892]
 
 tickers = []
-
-if unit_of_denomination:
-    for symbol in symbols:
-        tickers.append(get_ticker(symbol,"BTC"))
-else:
-    for symbol in symbols:
-        tickers.append(get_ticker(symbol,"USD"))
+for symbol in symbols:
+    tickers.append(get_ticker(symbol,"BTC")) if unit_of_denomination else tickers.append(get_ticker(symbol,"USD"))
 
 histories = []
 for ticker in tickers:
