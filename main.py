@@ -53,7 +53,10 @@ def render_the_matrix(sats_denomination):
     dataframe = pd.DataFrame(data)
     sorted_dataframe = dataframe.sort_values(by=['Delta'])
 
-    styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=2).bar(subset=['Delta'], align="mid")
+    if sats_denomination == "incents":
+        styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=2).bar(subset=['Delta'], align="mid")
+    elif sats_denomination == "insats":
+        styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=6).bar(subset=['Delta'], align="mid")
 
     st.write(styled_sorted_dataframe.to_html(), unsafe_allow_html=True)
 
