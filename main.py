@@ -7,27 +7,21 @@ def get_ticker(name, unit):
     return coin
 
 def render_the_matrix(denomination_unit):
-    pass
+    print(denomination_unit)
 
 st.write(""" # ATH Delta Matrix """)
 st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
-switch_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
+unit_of_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
 
-# if switch_denomination:
-#     render_the_matrix("BTC")
-# else:
-#     render_the_matrix("USD")
-
-#st.write(denomination_unit)
-symbols = ["USD", "ETH", "BNB", "SOL", "ADA", 
-        "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
-        "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
-        "LINK", "ALGO", "ATOM", "VET", "EGLD"]
+symbols = ["BTC", "ETH", "BNB", "SOL", "ADA", 
+           "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
+           "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
+           "LINK", "ALGO", "ATOM", "VET", "EGLD"]
 
 logos = [1, 1027, 1839, 5426, 2010, 
-        4172, 5805, 6636, 74, 1966,
-        5994, 3890, 3635, 7083, 2,
-        1975, 4030, 3794, 3077, 6892]
+         4172, 5805, 6636, 74, 1966,
+         5994, 3890, 3635, 7083, 2,
+         1975, 4030, 3794, 3077, 6892]
 
 tickers = []
 for symbol in symbols:
