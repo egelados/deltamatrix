@@ -53,4 +53,7 @@ st.write(""" # ATH Delta Matrix """)
 st.sidebar.header(""" Thx to @joed4lton from GCC for the idea. Had a few DANG moments preparing this :) """)
 switch_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
 
-render_the_matrix("BTC")
+if switch_denomination:
+    render_the_matrix("BTC")
+else: 
+    render_the_matrix("USD")
