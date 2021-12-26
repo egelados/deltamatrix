@@ -7,7 +7,7 @@ def get_ticker(name, unit):
     return coin
 
 def render_the_matrix(denomination_unit):
-    print(denomination_unit)
+    st.write(denomination_unit)
     symbols = ["BTC", "ETH", "BNB", "SOL", "ADA", 
             "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
             "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
