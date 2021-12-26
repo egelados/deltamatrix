@@ -38,8 +38,8 @@ def render_the_matrix(denomination_unit):
         'ATH': [ath for ath in aths],
         'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers]}
 
-    data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
-    data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
+    #data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
+    #data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
     data['Delta'] = [-((price / ath) - 1)*100 for price, ath in zip(data['Price'], data['ATH'])]    
 
     dataframe = pd.DataFrame(data)
