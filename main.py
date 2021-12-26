@@ -18,7 +18,7 @@ switch_denomination = st.sidebar.checkbox('Denominate in sats instead of fiat')
 # else:
 #     render_the_matrix("USD")
 
-st.write(denomination_unit)
+#st.write(denomination_unit)
 symbols = ["USD", "ETH", "BNB", "SOL", "ADA", 
         "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
         "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
