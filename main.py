@@ -6,8 +6,8 @@ def get_ticker(name, unit):
     coin = yf.Ticker(name + "-" + unit)
     return coin
 
-def render_the_matrix(denomination_unit):
-    st.write(denomination_unit)
+def render_the_matrix(sats_denomination):
+    st.write(sats_denomination)
     symbols = ["ETH", "BNB", "SOL", "ADA", 
                "LUNA1", "AVAX", "DOT", "DOGE", "MANA",
                "SHIB", "MATIC", "CRO", "UNI1", "LTC", 
@@ -19,8 +19,12 @@ def render_the_matrix(denomination_unit):
              1975, 4030, 3794, 3077, 6892]
 
     tickers = []
-    for symbol in symbols:
-        tickers.append(get_ticker(symbol,"USD"))
+    if sats_denomination == "ON":
+        for symbol in symbols:
+            tickers.append(get_ticker(symbol,"USD"))
+    else:
+        for symbol in symbols:
+            tickers.append(get_ticker(symbol,"USD"))
 
     histories = []
     for ticker in tickers:
@@ -38,8 +42,6 @@ def render_the_matrix(denomination_unit):
         'ATH': [ath for ath in aths],
         'Price': [ticker.history(period="1m")["Close"].values[0] for ticker in tickers]}
 
-    #data['ATH'][5] = 101.27 # ugly ath price fix for LUNA because of yahoo's finance error
-    #data['ATH'][7] = 55.13 # ugly ath price fix for DOT because of yahoo's finance error
     data['Delta'] = [-((price / ath) - 1)*100 for price, ath in zip(data['Price'], data['ATH'])]    
 
     dataframe = pd.DataFrame(data)
