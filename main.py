@@ -52,9 +52,9 @@ def render_the_matrix(denomination):
     dataframe = pd.DataFrame(data)
     sorted_dataframe = dataframe.sort_values(by=['Delta'])
 
-    if sats_denomination == "incents":
+    if denomination == "incents":
         styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=2).bar(subset=['Delta'], align="mid")
-    elif sats_denomination == "insats":
+    elif denomination == "insats":
         styled_sorted_dataframe = sorted_dataframe.style.hide_index().format(subset=['ATH','Price','Delta'], decimal='.', precision=6).bar(subset=['Delta'], align="mid")
 
     st.write(styled_sorted_dataframe.to_html(), unsafe_allow_html=True)
